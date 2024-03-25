@@ -18,3 +18,27 @@ function valorDoSimboloRomano(simbolo){
             return 0;
     }
 }
+
+function converterNumerosRomanos(numeroRomano){
+    let total = 0;
+
+    for(let i = 0; i < numeroRomano,length; i++){
+        const valorAtual = valorDoSimboloRomano(numeroRomano[i]);
+        const valorProximo = valorDoSimboloRomano(numeroRomano[i + 1]);
+
+        if(valorProximo > valorAtual) {
+            total += valorProximo - valorAtual;
+            i++;
+        } else {
+            total += valorAtual;
+        }
+    }
+
+    return total;
+}
+
+const numeroRomano = "MCMXCIV";
+const inteiro = converterNumerosRomanos(numeroRomano);
+
+
+console.log(`O número romano ${numeroRomano} é equivalente a ${inteiro}`);
